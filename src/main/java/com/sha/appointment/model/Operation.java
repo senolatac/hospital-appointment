@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -21,5 +21,5 @@ public class Operation extends BaseModel {
     private Long doctorId;
 
     @Column(name = "operation_time")
-    private LocalDate operationTime;
+    private LocalDateTime operationTime;
 }
