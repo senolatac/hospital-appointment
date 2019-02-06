@@ -17,4 +17,9 @@ public class DoctorController {
     public List<Doctor> findDoctors(final TitleOfDoctor titleOfDoctor) {
         return doctorService.findDoctors(titleOfDoctor);
     }
+
+    public Doctor saveDoctor(final Doctor doctor){
+        doctorService.save(doctor);
+        return doctor;
+    }
 }

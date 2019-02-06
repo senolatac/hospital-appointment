@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @NoArgsConstructor
+@MappedSuperclass
 public class Person extends BaseModel {
 
     @Getter

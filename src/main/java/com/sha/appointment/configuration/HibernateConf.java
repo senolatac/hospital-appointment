@@ -23,11 +23,11 @@ public class HibernateConf {
     private Environment env;
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();
         lcemfb.setJpaVendorAdapter(getJpaVendorAdapter());
         lcemfb.setDataSource(dataSource());
-        lcemfb.setPersistenceUnitName("entityManagerFactoryBean");
+        lcemfb.setPersistenceUnitName("entityManagerFactory");
         lcemfb.setPackagesToScan("com.sha.appointment.model");
         lcemfb.setJpaProperties(hibernateProperties());
         return lcemfb;
@@ -51,8 +51,8 @@ public class HibernateConf {
     }
 
     @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        return new JpaTransactionManager(getEntityManagerFactoryBean().getObject());
+    public PlatformTransactionManager transactionManager() {
+        return new JpaTransactionManager(entityManagerFactory().getObject());
     }
 
     private final Properties hibernateProperties() {
